@@ -34,4 +34,9 @@ return(
         {children}
     </GlobalContext.Provider>
 )
+
 }
+
+const useGlobalContext = () => useContext(GlobalContext);
+
+export { GlobalProvider, useGlobalContext }
