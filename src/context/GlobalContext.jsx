@@ -13,6 +13,17 @@ const [SinglePost, setSinglePost] = useState({
     content:'',
     image:'',
     tags:[]
-})
+});
+
+//chiamata per tutti i post
+const fetchData = () => {
+    axios.get('http://localhost:3000/api/posts')
+        .then( res => setPosts(res.data))
+};
+//chiamata per singolo post
+const getPostId = (id) => {
+    axios.get(`http://localhost:3000/api/posts/${id}`)
+        .then( res => setSinglePost(res.data))
+};
 
 }
