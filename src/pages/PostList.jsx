@@ -1,14 +1,20 @@
 import MainNav from "../components/MainNav"
-import { useState, useEffect } from "react"
+//import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import axios from "axios"
 import { NavLink } from "react-router-dom"
+import { useGlobalContext } from "../context/GlobalContext"
 
 const PostList = () => {
-    const [ posts, setPosts ] = useState([])
+    //const [ posts, setPosts ] = useState([])
+
+    const {posts, fetchData} = useGlobalContext()
 
     useEffect( () => {
-        axios.get('http://localhost:3000/api/posts')
-        .then( res => setPosts(res.data))
+        //axios.get('http://localhost:3000/api/posts')
+        //.then( res => setPosts(res.data))
+
+        fetchData()
     }, [] )
     
     return(
