@@ -25,5 +25,13 @@ const getPostId = (id) => {
     axios.get(`http://localhost:3000/api/posts/${id}`)
         .then( res => setSinglePost(res.data))
 };
-
+//return del provider
+const value = {
+    posts, SinglePost, fetchData, getPostId
+}
+return(
+    <GlobalContext.Provider value={value}>
+        {children}
+    </GlobalContext.Provider>
+)
 }
